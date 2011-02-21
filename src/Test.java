@@ -12,9 +12,9 @@ public class Test {
     c.addSprite(new NorthSouthSprite(400, 400));
     c.addSprite(new EastWestSprite(200, 200));
 
-    BlueSprite b = new BlueSprite(200, 200);
-    c.addKeyListener(b);
-    c.addSprite(b);
+    //BlueSprite b = new BlueSprite(200, 200);
+    //c.addKeyListener(b);
+    c.addSprite(new BlueSprite(200,200));
     
     c.addSprite(new RedSpriteAdapter(0,0));
 

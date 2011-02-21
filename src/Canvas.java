@@ -24,7 +24,7 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
   private Timer         timer;
   private JFrame        frame;
   private int           highlighted = 0;
-
+  
   private Canvas() {
     super();
 
@@ -40,7 +40,7 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
 
     setFocusTraversalKeysEnabled(false);
     addKeyListener(this);
-
+    
     frame.setVisible(true);
   }
 
@@ -62,7 +62,6 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
     }
     if (sprites.size() > highlighted) {
       Sprite s = sprites.get(highlighted);
-      //s.highlight(this, g);
       
       for (Sprite all : sprites) {
     	  all.setHighlight(false);
@@ -75,6 +74,19 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
   }
 
   public void keyPressed(KeyEvent e) {
+	Sprite highlightedSprite = sprites.get(highlighted);
+	if (e.getKeyCode() == e.VK_UP) {
+	    highlightedSprite.setDirection(Sprite.Direction.NORTH);
+	}
+	if (e.getKeyCode() == e.VK_DOWN) {
+		highlightedSprite.setDirection(Sprite.Direction.SOUTH);
+	}
+	if (e.getKeyCode() == e.VK_RIGHT) {
+		highlightedSprite.setDirection(Sprite.Direction.EAST);
+	}
+	if (e.getKeyCode() == e.VK_LEFT) {
+		highlightedSprite.setDirection(Sprite.Direction.WEST);
+	}
   }
 
   public void keyReleased(KeyEvent e) {
@@ -83,6 +95,11 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
       if (highlighted == sprites.size()) {
         highlighted = 0;
       }
+    }
+    if (e.getKeyCode() != e.VK_TAB) {
+    	Sprite highlightedSprite = sprites.get(highlighted);
+        highlightedSprite.setDirection(Sprite.Direction.NONE);
+//        System.out.println("setting highlighted sprite direction to none " + highlighted);
     }
   }
 

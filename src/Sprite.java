@@ -16,8 +16,9 @@ public abstract class Sprite {
   private Direction direction;
   protected boolean isHighlighted = false;
 
-  protected List<Icon> images;
-  protected int  current;
+  protected List<Icon> 	images;
+  protected int  		current;
+  protected Direction 	currentVisualDirection;
   
   MoveBehavior defaultMoveBehavior;
   MoveBehavior moveBehavior;
@@ -34,7 +35,7 @@ public abstract class Sprite {
   
   public void move(Canvas c) {
 	  if (this.isHighlighted) {
-		  setMoveBehavior(new NorthSouthMove());
+		  setMoveBehavior(new ControllableMove());
 	  }else{
 		  this.resetMoveBehavior();
 	  }
@@ -62,16 +63,6 @@ public abstract class Sprite {
   
   public void setHighlight(boolean highlight) {
 	  this.isHighlighted = highlight;
-  }
-
-  public void highlight(Component c, Graphics g) {
-    Icon icon   = images.get(current);
-    int  height = icon.getIconHeight();
-    int  width  = icon.getIconWidth();
-
-    g.setColor(Color.red);
-    g.draw3DRect(x, y, width, height, true);
-
   }
 
   public abstract void animate(Canvas c);
