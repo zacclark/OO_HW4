@@ -5,6 +5,10 @@ public class NorthSouthMove implements MoveBehavior {
 
 	@Override
 	public void move(Canvas c, Sprite s) {
+		if (s.getDirection() == Sprite.Direction.EAST || s.getDirection() == Sprite.Direction.WEST 
+				|| s.getDirection() == Sprite.Direction.NONE) {
+			s.setDirection(s.currentVisualDirection);
+		}
 		switch (s.getDirection()) {
 	      case NORTH:
 	        s.setY(s.getY() - 10);
