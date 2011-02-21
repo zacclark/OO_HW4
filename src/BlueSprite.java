@@ -15,43 +15,8 @@ public class BlueSprite extends Sprite implements KeyListener {
     images.add(new ImageIcon("images/BlueEast.png"));
     images.add(new ImageIcon("images/BlueWest.png"));
     setDirection(Sprite.Direction.NONE);
-  }
-
-  public void move(Canvas c) {
-    Icon icon = getCurrentImage();
-
-    int  iconHeight   = icon.getIconHeight();
-    int  iconWidth    = icon.getIconWidth();
-    int  canvasHeight = (int)c.getSize().getHeight();
-    int  canvasWidth  = (int)c.getSize().getWidth();
-
-    switch (getDirection()) {
-      case NORTH:
-        setY(getY() - 10);
-        if (getY() < 0) {
-          setY(0);
-        }
-        break;
-      case SOUTH:
-        setY(getY() + 10);
-        if (getY() + iconHeight > canvasHeight) {
-          setY((int)(canvasHeight - iconHeight));
-        }
-        break;
-      case EAST:
-        setX(getX() + 10);
-        if (getX() + iconWidth > canvasWidth) {
-          setX((int)(canvasWidth - iconWidth));
-        }
-        break;
-      case WEST:
-        setX(getX() - 10);
-        if (getX() < 0) {
-          setX(0);
-        }
-        break;
-    }
-
+    MoveBehavior mb = new ControllableMove();
+    setMoveBehavior(mb);
   }
 
   public void animate(Canvas c) {
@@ -78,7 +43,7 @@ public class BlueSprite extends Sprite implements KeyListener {
 
   public void keyReleased(KeyEvent e) {
     if (e.getKeyCode() != e.VK_TAB) {
-      //setDirection(Sprite.Direction.NONE);
+      setDirection(Sprite.Direction.NONE);
     }
   }
 

@@ -18,11 +18,21 @@ public abstract class Sprite {
 
   protected List<Icon> images;
   protected int  current;
+  
+  MoveBehavior moveBehavior;
 
   public Sprite(int x, int y) {
     this.x  = x;
     this.y  = y;
     current = 0;
+  }
+  
+  public void setMoveBehavior(MoveBehavior mb) {
+	  this.moveBehavior = mb;
+  }
+  
+  public void move(Canvas c) {
+	  moveBehavior.move(c, this);
   }
 
   public void draw(Component c, Graphics g) {
@@ -52,7 +62,6 @@ public abstract class Sprite {
 
   }
 
-  public abstract void move(Canvas c);
   public abstract void animate(Canvas c);
 
   public int getX() {
