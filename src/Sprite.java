@@ -19,6 +19,7 @@ public abstract class Sprite {
   protected List<Icon> images;
   protected int  current;
   
+  MoveBehavior defaultMoveBehavior;
   MoveBehavior moveBehavior;
 
   public Sprite(int x, int y) {
@@ -26,13 +27,24 @@ public abstract class Sprite {
     this.y  = y;
     current = 0;
   }
-  
+   
   public void setMoveBehavior(MoveBehavior mb) {
 	  this.moveBehavior = mb;
   }
   
   public void move(Canvas c) {
+	  if (this.isHighlighted) {
+		  setMoveBehavior(new NorthSouthMove());
+	  }else{
+		  this.resetMoveBehavior();
+	  }
 	  moveBehavior.move(c, this);
+  }
+  
+  public void resetMoveBehavior() {
+	  if (this.defaultMoveBehavior != null) {
+		  setMoveBehavior(this.defaultMoveBehavior);
+	  }
   }
 
   public void draw(Component c, Graphics g) {

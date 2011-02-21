@@ -11,8 +11,8 @@ public class EastWestSprite extends Sprite {
     images.add(new ImageIcon("images/east.png"));
     images.add(new ImageIcon("images/west.png"));
     super.setDirection(Sprite.Direction.EAST);
-    MoveBehavior mb = new EastWestMove();
-    setMoveBehavior(mb);
+    defaultMoveBehavior = new EastWestMove();
+    setMoveBehavior(defaultMoveBehavior);
   }
 
   public void animate(Canvas c) {

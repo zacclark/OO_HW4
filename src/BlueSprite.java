@@ -6,7 +6,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class BlueSprite extends Sprite implements KeyListener {
-
+	
   public BlueSprite(int x, int y) {
     super(x, y);
     images = new LinkedList<Icon>();
@@ -15,8 +15,8 @@ public class BlueSprite extends Sprite implements KeyListener {
     images.add(new ImageIcon("images/BlueEast.png"));
     images.add(new ImageIcon("images/BlueWest.png"));
     setDirection(Sprite.Direction.NONE);
-    MoveBehavior mb = new ControllableMove();
-    setMoveBehavior(mb);
+    defaultMoveBehavior = new ControllableMove();
+    setMoveBehavior(defaultMoveBehavior); 
   }
 
   public void animate(Canvas c) {

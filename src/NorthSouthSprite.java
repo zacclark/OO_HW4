@@ -11,8 +11,8 @@ public class NorthSouthSprite extends Sprite {
     images.add(new ImageIcon("images/north.png"));
     images.add(new ImageIcon("images/south.png"));
     setDirection(Sprite.Direction.NORTH);
-    MoveBehavior mb = new NorthSouthMove();
-    setMoveBehavior(mb);
+    defaultMoveBehavior = new NorthSouthMove();
+    setMoveBehavior(defaultMoveBehavior); 
   }
 
   public void animate(Canvas c) {
