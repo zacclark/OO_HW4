@@ -34,11 +34,6 @@ public abstract class Sprite {
   }
   
   public void move(Canvas c) {
-	  if (this.isHighlighted) {
-		  setMoveBehavior(new ControllableMove());
-	  }else{
-		  this.resetMoveBehavior();
-	  }
 	  moveBehavior.move(c, this);
   }
   
@@ -63,6 +58,12 @@ public abstract class Sprite {
   
   public void setHighlight(boolean highlight) {
 	  this.isHighlighted = highlight;
+	  if (highlight == true) {
+		  setDirection(Sprite.Direction.NONE);
+		  setMoveBehavior(new ControllableMove());
+	  }else{
+		  this.resetMoveBehavior();
+	  }
   }
 
   public abstract void animate(Canvas c);
