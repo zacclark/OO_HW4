@@ -53,20 +53,15 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
   }
 
   public synchronized void addSprite(Sprite sprite) {
+	if (sprites.size() == 0) {
+		sprite.setHighlight(true);
+	}
     sprites.add(sprite);
   }
 
   public synchronized void paint(Graphics g) {
     for (Sprite s : sprites) {
       s.draw(this, g);
-    }
-    if (sprites.size() > highlighted) {
-      Sprite s = sprites.get(highlighted);
-      
-      for (Sprite all : sprites) {
-    	  all.setHighlight(false);
-      }
-      s.setHighlight(true);
     }
   }
 
@@ -94,6 +89,14 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
       highlighted = highlighted + 1;
       if (highlighted == sprites.size()) {
         highlighted = 0;
+      }
+      if (sprites.size() > highlighted) {
+          Sprite s = sprites.get(highlighted);
+          
+          for (Sprite all : sprites) {
+        	  all.setHighlight(false);
+          }
+          s.setHighlight(true);
       }
     }
     if (e.getKeyCode() != e.VK_TAB) {
