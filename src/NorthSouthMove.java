@@ -7,7 +7,7 @@ public class NorthSouthMove implements MoveBehavior {
 	public void move(Canvas c, Sprite s) {
 		if (s.getDirection() == Sprite.Direction.EAST || s.getDirection() == Sprite.Direction.WEST 
 				|| s.getDirection() == Sprite.Direction.NONE) {
-			s.setDirection(s.currentVisualDirection);
+			s.setDirection(s.getLastAutoDirection());
 		}
 		switch (s.getDirection()) {
 	      case NORTH:

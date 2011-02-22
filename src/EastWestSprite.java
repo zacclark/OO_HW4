@@ -11,7 +11,7 @@ public class EastWestSprite extends Sprite {
     images.add(new ImageIcon("images/east.png"));
     images.add(new ImageIcon("images/west.png"));
     super.setDirection(Sprite.Direction.EAST);
-    currentVisualDirection = Sprite.Direction.EAST;
+    super.setLastAutoDirection(Sprite.Direction.EAST);
     defaultMoveBehavior = new EastWestMove();
     setMoveBehavior(defaultMoveBehavior);
   }
@@ -20,11 +20,9 @@ public class EastWestSprite extends Sprite {
     switch (getDirection()) {
       case EAST:
         current = 0;
-        currentVisualDirection = Sprite.Direction.EAST;
         break;
       case WEST:
         current = 1;
-        currentVisualDirection = Sprite.Direction.WEST;
         break;
     }
   }

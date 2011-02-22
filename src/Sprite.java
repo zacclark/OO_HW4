@@ -18,7 +18,7 @@ public abstract class Sprite {
 
   protected List<Icon> 	images;
   protected int  		current;
-  protected Direction 	currentVisualDirection;
+  private Direction 	lastAutoDirection;
   
   MoveBehavior defaultMoveBehavior;
   MoveBehavior moveBehavior;
@@ -59,6 +59,7 @@ public abstract class Sprite {
   public void setHighlight(boolean highlight) {
 	  this.isHighlighted = highlight;
 	  if (highlight == true) {
+		  setLastAutoDirection(this.getDirection());
 		  setDirection(Sprite.Direction.NONE);
 		  setMoveBehavior(new ControllableMove());
 	  }else{
@@ -95,5 +96,13 @@ public abstract class Sprite {
   public Icon getCurrentImage() {
     return images.get(current);
   }
+
+public void setLastAutoDirection(Direction lastAutoDirection) {
+	this.lastAutoDirection = lastAutoDirection;
+}
+
+public Direction getLastAutoDirection() {
+	return lastAutoDirection;
+}
 
 }

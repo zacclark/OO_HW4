@@ -7,7 +7,7 @@ public class EastWestMove implements MoveBehavior {
 	public void move(Canvas c, Sprite s) {
 		if (s.getDirection() == Sprite.Direction.NORTH || s.getDirection() == Sprite.Direction.SOUTH
 				|| s.getDirection() == Sprite.Direction.NONE) {
-			s.setDirection(s.currentVisualDirection);
+			s.setDirection(s.getLastAutoDirection());
 		}
 		switch (s.getDirection()) {
 	      case EAST:
