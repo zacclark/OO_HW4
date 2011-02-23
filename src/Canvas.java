@@ -54,7 +54,7 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
 
   public synchronized void addSprite(Sprite sprite) {
 	if (sprites.size() == 0) {
-		sprite.setHighlight(true);
+		sprite.setHighlight(true); // Making sure we have a default highlighted sprite
 	}
     sprites.add(sprite);
   }
@@ -102,7 +102,6 @@ public class Canvas extends JComponent implements ActionListener, KeyListener {
     if (e.getKeyCode() != e.VK_TAB) {
     	Sprite highlightedSprite = sprites.get(highlighted);
         highlightedSprite.setDirection(Sprite.Direction.NONE);
-//        System.out.println("setting highlighted sprite direction to none " + highlighted);
     }
   }
 

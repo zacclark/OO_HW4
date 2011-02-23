@@ -16,7 +16,6 @@ public class BlueSprite extends Sprite {
     images.add(new ImageIcon("images/BlueWest.png"));
     super.setDirection(Sprite.Direction.NORTH);
     super.setLastAutoDirection(Sprite.Direction.NORTH);
-    //defaultMoveBehavior = new NorthSouthMove();
     defaultMoveBehavior = new RandMove();
     setMoveBehavior(defaultMoveBehavior); 
   }
