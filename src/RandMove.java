@@ -4,6 +4,7 @@ import javax.swing.Icon;
 public class RandMove implements MoveBehavior {
 	
 	private int toMoveDistance = 0;
+	protected int speed = 30;
 	
 	private int randinrange(int min, int max) {
 		return min + (int)(Math.random() * ((max - min) + 1));
@@ -40,8 +41,6 @@ public class RandMove implements MoveBehavior {
 				break;
 			}
 		}
-		
-		int speed = 30;
 
 		switch (s.getDirection()) {
 		  case NORTH:
