@@ -16,18 +16,18 @@ public class SpiralMove implements MoveBehavior {
 	    int  canvasHeight = (int)c.getSize().getHeight();
 	    int  canvasWidth  = (int)c.getSize().getWidth();
 	    
-	    int sideSpace = 200;
+	    int sideSpace = 0;
 
 	    switch (s.getDirection()) {
 	      case NORTH:
-	        s.setY(s.getY() - 10);
+	        s.setY(s.getY() - 100);
 	        if (s.getY() < sideSpace) {
 	          s.setY(sideSpace);
 	          s.setDirection(Sprite.Direction.WEST);
 	        }
 	        break;
 	      case SOUTH:
-	        s.setY(s.getY() + 10);
+	        s.setY(s.getY() + 100);
 	        if (s.getY() + iconHeight > (canvasHeight - sideSpace)) {
 	          s.setY((int)((canvasHeight - sideSpace) - iconHeight));
 	          s.setDirection(Sprite.Direction.EAST);
