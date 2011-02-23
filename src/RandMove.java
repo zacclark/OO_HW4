@@ -40,35 +40,37 @@ public class RandMove implements MoveBehavior {
 				break;
 			}
 		}
+		
+		int speed = 30;
 
 		switch (s.getDirection()) {
 		  case NORTH:
-		    s.setY(s.getY() - 10);
-		    toMoveDistance -= 10;
+		    s.setY(s.getY() - speed);
+		    toMoveDistance -= speed;
 		    if (s.getY() < 0) {
 		      s.setY(0);
 		      toMoveDistance = 0;
 		    }
 		    break;
 		  case SOUTH:
-		    s.setY(s.getY() + 10);
-		    toMoveDistance -= 10;
+		    s.setY(s.getY() + speed);
+		    toMoveDistance -= speed;
 		    if (s.getY() + iconHeight > canvasHeight) {
 		      s.setY((int)(canvasHeight - iconHeight));
 		      toMoveDistance = 0;
 		    }
 		    break;
 		  case EAST:
-		    s.setX(s.getX() + 10);
-		    toMoveDistance -= 10;
+		    s.setX(s.getX() + speed);
+		    toMoveDistance -= speed;
 		    if (s.getX() + iconWidth > canvasWidth) {
 		      s.setX((int)(canvasWidth - iconWidth));
 		      toMoveDistance = 0;
 		    }
 		    break;
 		  case WEST:
-		    s.setX(s.getX() - 10);
-		    toMoveDistance -= 10;
+		    s.setX(s.getX() - speed);
+		    toMoveDistance -= speed;
 		    if (s.getX() < 0) {
 		      s.setX(0);
 		      toMoveDistance = 0;
