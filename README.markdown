@@ -2,7 +2,7 @@
 
 ## Ben Limmer & Zachary Clark ##
 
-#### State of the system: ####
+### State of the system: ###
 
 We added 3 (sort of) movement behaviors:
 
@@ -14,7 +14,7 @@ We added 3 (sort of) movement behaviors:
 
 We also added a new sprite: KenSprite, which, instead of pointing in the direction of motion, continually spins in circles while moving.
 
-#### Functionality Provided ####
+### Functionality Provided: ###
 
 We created a MoveBehavior abstract class with an assortment of moves as subclasses that could be hot-swapped on sprites to change their movement. We recreated north-south and east-west, as well as the behavior used by highlighted sprites: ControllableMove.
 
